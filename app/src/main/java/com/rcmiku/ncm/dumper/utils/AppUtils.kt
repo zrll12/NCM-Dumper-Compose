@@ -1,8 +1,6 @@
 package com.rcmiku.ncm.dumper.utils
 
 import android.annotation.SuppressLint
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
@@ -31,10 +29,6 @@ object AppUtils {
         return cipher.doFinal(encryptedData)
     }
 
-    fun byteArrayToBitmap(byteArray: ByteArray): Bitmap? {
-        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
-    }
-
     fun Long.sizeIn(): String {
         return when {
             this < 1000 -> "%d B".format(this)
@@ -51,13 +45,14 @@ object AppUtils {
         subCorner: Dp
     ): Shape {
         return when {
-            prevItem != null && nextItem != null -> RoundedCornerShape(subCorner) // 中间项
-            prevItem == null && nextItem == null -> RoundedCornerShape(corner) // 只有一个元素
-            prevItem == null -> RoundedCornerShape( // 第一项
+            prevItem != null && nextItem != null -> RoundedCornerShape(subCorner)
+            prevItem == null && nextItem == null -> RoundedCornerShape(corner)
+            prevItem == null -> RoundedCornerShape(
                 topStart = corner, topEnd = corner,
                 bottomStart = subCorner, bottomEnd = subCorner
             )
-            else -> RoundedCornerShape( // 最后一项
+
+            else -> RoundedCornerShape(
                 topStart = subCorner, topEnd = subCorner,
                 bottomStart = corner, bottomEnd = corner
             )

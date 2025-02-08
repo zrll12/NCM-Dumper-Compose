@@ -9,6 +9,8 @@
     <string name="select_count">已选择 %d</string>
     <string name="search">搜索</string>
     <string name="pick_folder">选择文件夹</string>
-    <string name="file_count">共 %d 个文件</string>
+    <string name="file_count">共 %d 个 NCM 文件</string>
     <string name="dump_hint">开始转换，文件保存到</string>
+    <string name="basic_settings">基础</string>
+    <string name="filer_dumped_file">排除已转换文件</string>
 </resources>

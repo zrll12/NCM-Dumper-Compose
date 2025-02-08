@@ -28,7 +28,15 @@ val Github: ImageVector
             ) {
                 moveTo(15f, 22f)
                 verticalLineToRelative(-4f)
-                arcToRelative(4.8f, 4.8f, 0f, isMoreThanHalf = false, isPositiveArc = false, -1f, -3.5f)
+                arcToRelative(
+                    4.8f,
+                    4.8f,
+                    0f,
+                    isMoreThanHalf = false,
+                    isPositiveArc = false,
+                    -1f,
+                    -3.5f
+                )
                 curveToRelative(3f, 0f, 6f, -2f, 6f, -5.5f)
                 curveToRelative(0.08f, -1.25f, -0.27f, -2.48f, -1f, -3.5f)
                 curveToRelative(0.28f, -1.15f, 0.28f, -2.35f, 0f, -3.5f)

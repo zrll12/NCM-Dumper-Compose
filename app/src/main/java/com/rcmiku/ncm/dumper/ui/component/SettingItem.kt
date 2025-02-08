@@ -26,7 +26,8 @@ fun SettingItem(
     imageVector: ImageVector,
     title: String,
     subtitle: String? = null,
-    onClick: () -> Unit,
+    onClick: (() -> Unit)? = null,
+    trailingContent: @Composable (() -> Unit)? = null
 ) {
 
     Row(
@@ -35,7 +36,7 @@ fun SettingItem(
             .height(60.dp)
             .combinedClickable(
                 onClick = {
-                    onClick()
+                    onClick?.invoke()
                 },
             ),
         verticalAlignment = Alignment.CenterVertically
@@ -64,5 +65,6 @@ fun SettingItem(
                 )
             }
         }
+        trailingContent?.invoke()
     }
 }

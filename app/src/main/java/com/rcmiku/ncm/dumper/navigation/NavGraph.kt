@@ -24,10 +24,23 @@ fun NavGraph(navController: NavHostController, viewModel: NCMDumperViewModel) {
     val writeExternalStorage = rememberPermissionState(
         android.Manifest.permission.WRITE_EXTERNAL_STORAGE
     )
+    val readMediaAudio = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        rememberPermissionState(
+            android.Manifest.permission.READ_MEDIA_AUDIO
+        )
+    } else {
+        null
+    }
 
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
         LaunchedEffect(!writeExternalStorage.status.isGranted) {
             writeExternalStorage.launchPermissionRequest()
+        }
+    }
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        LaunchedEffect(!readMediaAudio?.status?.isGranted!!) {
+            readMediaAudio.launchPermissionRequest()
         }
     }
 
@@ -39,6 +52,6 @@ fun NavGraph(navController: NavHostController, viewModel: NCMDumperViewModel) {
             fadeIn(tween(250))
         }) {
         composable(Screen.Home.route) { NCMDumperApp(viewModel, navController) }
-        composable(Screen.Settings.route) { SettingsScreen(navController) }
+        composable(Screen.Settings.route) { SettingsScreen(viewModel, navController) }
     }
 }

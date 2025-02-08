@@ -21,6 +21,7 @@ class NCMDumperViewModel : ViewModel() {
 
     private val _fileList = MutableStateFlow<List<NCMFile>>(emptyList())
     private val _cacheFileList = MutableStateFlow<List<NCMFile>>(emptyList())
+    private val _dumpedMusicList = MutableStateFlow<List<String>>(emptyList())
     val cacheFileList: StateFlow<List<NCMFile>> = _cacheFileList
     private val _query = MutableStateFlow("")
     val query: StateFlow<String> = _query
@@ -51,8 +52,17 @@ class NCMDumperViewModel : ViewModel() {
 
     fun initFileList(uri: Uri) {
         if (canReadUri(context = AppContextUtil.context, uri)) {
-            val fileList = FileUtils.getNcmFiles(AppContextUtil.context, uri)
-            _fileList.value = fileList
+            var fileList = FileUtils.getNcmFiles(AppContextUtil.context, uri)
+            if (PreferencesUtils().perfGetBoolean("enable_file_filter") == true) {
+                _dumpedMusicList.value =
+                    FileUtils.getMusicFilesInAppFolder(context = AppContextUtil.context)
+                fileList = fileList.filterNot { file ->
+                    file.name in _dumpedMusicList.value
+                }
+                _fileList.value = fileList
+            } else {
+                _fileList.value = fileList
+            }
         }
     }
 
