@@ -26,7 +26,7 @@ data class NCMMetadata(
 )
 
 @Serializable
-data class MusicLyrics(val lyric: String)
+data class MusicLyrics(val lyric: String = "")
 
 object ArtistNameListSerializer : KSerializer<List<String>> {
     override val descriptor: SerialDescriptor =
