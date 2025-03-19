@@ -271,11 +271,14 @@ fun NCMDumperApp(viewModel: NCMDumperViewModel, navController: NavHostController
                                 .padding(bottom = 4.dp)
                         ) {
                             NCMFileItem(ncmFile, onClick = {
-                                if (isSelectMode)
+                                if (isSelectMode) {
                                     viewModel.updateCheckedState(
                                         ncmFile.uri,
                                         !ncmFile.checkState
                                     )
+                                } else {
+                                    navController.navigate(Screen.Description.route + "/${index}")
+                                }
                             }, onLongClick = {
                                 viewModel.updateCheckedState(ncmFile.uri, !ncmFile.checkState)
                             })
