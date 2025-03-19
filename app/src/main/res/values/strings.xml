@@ -8,7 +8,7 @@
     <string name="select_count">Selected %d</string>
     <string name="search">Search</string>
     <string name="pick_folder">Pick Folder</string>
-    <string name="file_count">Total of %d NCM files</string>
+    <string name="file_count">Found %1$d NCM files in %2$s</string>
     <string name="dump_hint">Conversion started, files saved to</string>
     <string name="basic_settings">Basic</string>
     <string name="filer_dumped_file">Exclude Converted Files</string>
