@@ -12,4 +12,9 @@
     <string name="dump_hint">Conversion started, files saved to</string>
     <string name="basic_settings">Basic</string>
     <string name="filer_dumped_file">Exclude Converted Files</string>
+    <string name="file_info">File info</string>
+    <string name="file_name">File name</string>
+    <string name="file_size">File size</string>
+    <string name="file_status">Convert status</string>
+    <string name="file_path">File path</string>
 </resources>

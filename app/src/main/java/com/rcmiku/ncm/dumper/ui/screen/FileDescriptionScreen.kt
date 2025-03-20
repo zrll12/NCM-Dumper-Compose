@@ -42,7 +42,7 @@ fun FileDescriptionScreen (navController: NavHostController, file: NCMFile) {
         LazyColumn(modifier = Modifier.padding(horizontal = 12.dp), contentPadding = it) {
             item {
                 Text(
-                    "File info",
+                    stringResource(R.string.file_info),
                     modifier = Modifier.padding(start = 12.dp, bottom = 12.dp),
                     style = MaterialTheme.typography.titleSmall
                 )
@@ -52,7 +52,7 @@ fun FileDescriptionScreen (navController: NavHostController, file: NCMFile) {
                 ) {
                     SettingItem(
                         imageVector = Document,
-                        title = "File Name",
+                        title = stringResource(R.string.file_name),
                         subtitle = file.name
                     )
                 }
@@ -62,7 +62,7 @@ fun FileDescriptionScreen (navController: NavHostController, file: NCMFile) {
                 ) {
                     SettingItem(
                         imageVector = Ruler,
-                        title = "File Size",
+                        title = stringResource(R.string.file_size),
                         subtitle = file.size.sizeIn()
                     )
                 }
@@ -72,7 +72,7 @@ fun FileDescriptionScreen (navController: NavHostController, file: NCMFile) {
                 ) {
                     SettingItem(
                         imageVector = Convert,
-                        title = "Convert Status",
+                        title = stringResource(R.string.file_status),
                         subtitle = when (file.taskState) {
                             TaskState.Default -> "Not converted"
                             TaskState.Success -> "Converted"
@@ -86,11 +86,8 @@ fun FileDescriptionScreen (navController: NavHostController, file: NCMFile) {
                 ) {
                     SettingItem(
                         imageVector = Folder,
-                        title = "File Path",
+                        title = stringResource(R.string.file_path),
                         subtitle = file.uri.lastPathSegment,
-                        onClick = {
-                            // Open file path in file manager
-                        }
                     )
                 }
 

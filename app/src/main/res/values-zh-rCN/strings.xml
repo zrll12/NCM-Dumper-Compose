@@ -13,4 +13,9 @@
     <string name="dump_hint">开始转换，文件保存到</string>
     <string name="basic_settings">基础</string>
     <string name="filer_dumped_file">排除已转换文件</string>
+    <string name="file_info">文件信息</string>
+    <string name="file_name">文件名</string>
+    <string name="file_size">大小</string>
+    <string name="file_status">转换状态</string>
+    <string name="file_path">文件目录</string>
 </resources>
